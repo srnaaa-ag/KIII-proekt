@@ -1,0 +1,195 @@
+:root {
+  --botanic-green: #4caf50;
+  --dark-green: #2e7d32;
+  --light-green: #a5d6a7;
+  --background: linear-gradient(135deg, #d0f0c0 0%, #a0d468 100%);
+  --card-bg: #ffffff;
+  --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --soft-shadow: 0 8px 16px rgba(46, 125, 50, 0.2);
+  --accent: #81c784;
+  --error: #d32f2f;
+  --hover-shadow: 0 12px 24px rgba(46, 125, 50, 0.3);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  font-family: var(--font);
+  color: #2e7d32;
+}
+
+.container {
+  max-width: 900px;
+  margin-left: 500px;
+  padding: 2rem 2.5rem;
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: var(--soft-shadow);
+  border: 2px solid var(--botanic-green);
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--dark-green);
+  text-shadow: 1px 1px 3px var(--light-green);
+  user-select: none;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.3rem;
+  margin: 0 auto 2.5rem auto; /* центрирање на формата хоризонтално */
+  max-width: 700px;           /* да не биде преголема */
+  justify-content: center;    /* центрира колоните */
+}
+
+input, textarea {
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 2px solid var(--light-green);
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #f9fff9;
+  font-weight: 600;
+  color: var(--dark-green);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--botanic-green);
+  box-shadow: 0 0 10px var(--botanic-green);
+  background-color: #e6f4e6;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+  font-family: var(--font);
+}
+
+button {
+  grid-column: 1 / -1;
+  padding: 1rem 0;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--botanic-green), var(--dark-green));
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+  transition: background 0.4s, box-shadow 0.4s, transform 0.3s;
+  user-select: none;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--dark-green), var(--botanic-green));
+  box-shadow: var(--hover-shadow);
+  transform: scale(1.05);
+}
+
+.plant-list {
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.plant-card {
+  background: #f9fff9;
+  border-radius: 24px;
+  box-shadow: var(--soft-shadow);
+  padding: 1.8rem 2rem;
+  border-left: 8px solid var(--botanic-green);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--hover-shadow);
+}
+
+.plant-card h2 {
+  margin: 0 0 0.8rem 0;
+  color: var(--dark-green);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.plant-card p {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+  color: #355e35;
+  line-height: 1.3;
+}
+
+.delete {
+  background-color: var(--error);
+  color: white;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  position: absolute;
+  right: 1.2rem;
+  top: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+.delete:hover {
+  background-color: #b71c1c;
+}
+
+/* Tooltip for last watered date */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip:hover::after {
+  content: 'Last watered date in DD/MM/YYYY';
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--botanic-green);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+}
+
+input[type="date"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  padding-right: 3rem;
+  background-color: #f9fff9;
+  border: 2px solid var(--light-green);
+  border-radius: 14px;
+  font-size: 1.1rem;
+  color: var(--dark-green);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: url("data:image/svg+xml,%3Csvg fill='%232e7d32' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 16H5V9h14v11zM5 7V6h14v1H5z'/%3E%3C/svg%3E") no-repeat center;
+  background-size: 1.2rem 1.2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  filter: brightness(0.9);
+  opacity: 0.85;
+}
