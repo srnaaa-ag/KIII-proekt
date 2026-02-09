@@ -50,8 +50,8 @@ jobs:
       # --- Debug Docker tags ---
       - name: Debug - print Docker tags
         run: |
-          echo "Backend tag: janagogs/backend:v2"
-          echo "Frontend tag: janagogs/frontend:v2"
+          echo "Backend tag: srnaagoli/backend:v2"
+          echo "Frontend tag: srnaagoli/frontend:v2"
 
       # --- Build & push backend Docker image ---
       - name: Build & push backend image
