@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: plantdiary-config
+  namespace: kiii-project
+data:
+  SPRING_DATA_MONGODB_URI: mongodb://mongo-db:27017/plantdiarydb
+
